@@ -29,16 +29,22 @@ const Navbar = () => {
             The Space
           </Link>
           <Link
+            href="/AboutUs"
+            className="hover:text-[#FF9F2E] transition-colors duration-300"
+          >
+            About Us
+          </Link>
+          <Link
             href="/menu"
             className="hover:text-[#FF9F2E] transition-colors duration-300"
           >
             The Fare
           </Link>
           <Link
-            href="/happenings"
+            href="/contact"
             className="hover:text-[#FF9F2E] transition-colors duration-300"
           >
-            Happenings
+            Contact Us
           </Link>
         </div>
 
@@ -62,6 +68,13 @@ const Navbar = () => {
             The Space
           </Link>
           <Link
+            href="/AboutUs"
+            className="text-lg tracking-widest hover:text-[#FF9F2E]"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About Us
+          </Link>
+          <Link
             href="/menu"
             className="text-lg tracking-widest hover:text-[#FF9F2E]"
             onClick={() => setIsMenuOpen(false)}
@@ -69,11 +82,11 @@ const Navbar = () => {
             The Fare
           </Link>
           <Link
-            href="/happenings"
+            href="/contact"
             className="text-lg tracking-widest hover:text-[#FF9F2E]"
             onClick={() => setIsMenuOpen(false)}
           >
-            Happenings
+            Contact Us
           </Link>
         </div>
       )}
