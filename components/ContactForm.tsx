@@ -24,9 +24,7 @@ const ContactForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -79,7 +77,21 @@ const ContactForm = () => {
   // =======================
   return (
     <section className="relative w-full py-32 px-6 md:px-12 flex items-center justify-center min-h-screen overflow-hidden bg-[#181816]">
-      {/* Background Texture (Moved Inside Component) */}
+      {/* CSS Hack to prevent white background on Autofill/Active state */}
+      <style jsx global>{`
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+          -webkit-text-fill-color: #e0e0e0;
+          -webkit-box-shadow: 0 0 0px 1000px #141412 inset;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      `}</style>
+
+      {/* Background Texture */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <filter id="n">
@@ -192,26 +204,20 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Row 3 */}
+            {/* Row 3 - UPDATED: Text Input instead of Select */}
             <div className="space-y-2 group">
               <label className="text-xs text-[#8C8681] uppercase tracking-widest group-focus-within:text-[#FF9F2E] transition-colors">
                 Subject *
               </label>
-              <select
+              <input
+                type="text"
                 name="subject"
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full bg-[#141412] border-b border-[#4A3B32] py-2 text-[#E0E0E0] outline-none focus:border-[#FF9F2E] transition-colors appearance-none cursor-pointer"
-              >
-                <option value="" disabled>
-                  Select a topic
-                </option>
-                <option value="Table Reservation">Table Reservation</option>
-                <option value="Private Event">Private Event</option>
-                <option value="Musician Inquiry">Musician Inquiry</option>
-                <option value="General Question">General Question</option>
-              </select>
+                className="w-full bg-transparent border-b border-[#4A3B32] py-2 text-[#E0E0E0] outline-none focus:border-[#FF9F2E] transition-colors placeholder:text-[#4A3B32]/50"
+                placeholder="Table Reservation, Event, etc."
+              />
             </div>
 
             {/* Row 4 */}
@@ -255,7 +261,7 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={status === "loading" || status === "success"}
-              className="w-full bg-[#E0E0E0] text-[#181816] py-4 uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#FF9F2E] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+              className="w-full bg-[#E0E0E0] text-[#181816] cursor-pointer py-4 uppercase tracking-[0.2em] text-xs font-bold hover:bg-[#FF9F2E] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2"
             >
               {status === "loading" ? (
                 <>

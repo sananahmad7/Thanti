@@ -1,11 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-} from "react-icons/fa";
+import { FaInstagram, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -55,10 +50,18 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/happenings"
+                  href="/about"
                   className="hover:text-[#FF9F2E] transition-colors"
                 >
-                  Happenings
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#FF9F2E] transition-colors"
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -98,11 +101,13 @@ const Footer = () => {
               Connect
             </h4>
             <div className="flex gap-4">
-              <SocialIcon icon={<FaFacebookF />} href="#" />
-              <SocialIcon icon={<FaInstagram />} href="#" />
+              <SocialIcon
+                icon={<FaInstagram />}
+                href="https://www.instagram.com/thanti_snacking_bar/"
+              />
             </div>
             <p className="text-xs opacity-60 font-light pt-2">
-              Join our Facebook group for <br /> daily specials and updates.
+              Follow us for daily updates <br /> and specials.
             </p>
           </div>
         </div>

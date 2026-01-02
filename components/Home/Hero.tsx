@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -59,14 +60,20 @@ const Hero = () => {
 
         {/* Action Buttons */}
         <div className="mt-12 flex flex-col md:flex-row gap-6">
-          <button className="px-8 py-3 border border-[#FF9F2E]/30 text-[#FF9F2E] hover:bg-[#FF9F2E]/10 hover:border-[#FF9F2E] transition-all duration-500 tracking-widest uppercase text-sm rounded-sm">
+          <Link
+            href="/menu"
+            className="px-8 py-3 cursor-pointer border border-[#FF9F2E]/30 text-[#FF9F2E] hover:bg-[#FF9F2E]/10 hover:border-[#FF9F2E] transition-all duration-500 tracking-widest uppercase text-sm rounded-sm"
+          >
             View Menu
-          </button>
+          </Link>
 
           {/* Primary CTA using Thanti Blue */}
-          <button className="px-8 py-3 bg-[#2B4C6F] text-[#E0E0E0] hover:bg-[#2B4C6F]/90 hover:shadow-[0_0_20px_-5px_#2B4C6F] transition-all duration-500 tracking-widest uppercase text-sm rounded-sm">
-            Visit The Nook
-          </button>
+          <Link
+            href="contact"
+            className="px-8 py-3 bg-[#2B4C6F] cursor-pointer text-[#E0E0E0] hover:bg-[#2B4C6F]/90 hover:shadow-[0_0_20px_-5px_#2B4C6F] transition-all duration-500 tracking-widest uppercase text-sm rounded-sm"
+          >
+            Get In Touch
+          </Link>
         </div>
       </main>
 

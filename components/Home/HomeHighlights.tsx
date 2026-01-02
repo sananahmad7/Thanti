@@ -51,10 +51,10 @@ const TheExperience = () => {
 
             <div>
               <Link
-                href="/fare"
+                href="/menu"
                 className="group inline-flex items-center gap-3 text-[#E0E0E0] hover:text-[#FF9F2E] transition-colors"
               >
-                <span className="uppercase text-xs tracking-[0.2em] border-b border-transparent group-hover:border-[#FF9F2E] pb-1">
+                <span className="uppercase cursor-pointer text-xs tracking-[0.2em] border-b border-transparent group-hover:border-[#FF9F2E] pb-1">
                   View The Full Menu
                 </span>
                 <FaArrowRight className="text-[#2B4C6F] group-hover:translate-x-2 transition-transform duration-300" />
@@ -92,10 +92,10 @@ const TheExperience = () => {
 
             <div>
               <Link
-                href="/happenings"
+                href="#"
                 className="group inline-flex items-center gap-3 text-[#E0E0E0] hover:text-[#FF9F2E] transition-colors"
               >
-                <span className="uppercase text-xs tracking-[0.2em] border-b border-transparent group-hover:border-[#FF9F2E] pb-1">
+                <span className="uppercase text-xs cursor-pointer tracking-[0.2em] border-b border-transparent group-hover:border-[#FF9F2E] pb-1">
                   Check Tonight's Event
                 </span>
                 <FaArrowRight className="text-[#2B4C6F] group-hover:translate-x-2 transition-transform duration-300" />

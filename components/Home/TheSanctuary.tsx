@@ -74,8 +74,8 @@ const TheSanctuary = () => {
 
           {/* CTA Buttons */}
           <div className="pt-8 flex flex-wrap gap-6">
-            <Link href="/fare">
-              <button className="px-8 py-3 bg-transparent border border-[#FF9F2E] text-[#FF9F2E] hover:bg-[#FF9F2E] hover:text-[#181816] transition-all duration-300 text-sm tracking-widest uppercase">
+            <Link href="/menu">
+              <button className="px-8 py-3 cursor-pointer bg-transparent border border-[#FF9F2E] text-[#FF9F2E] hover:bg-[#FF9F2E] hover:text-[#181816] transition-all duration-300 text-sm tracking-widest uppercase">
                 Explore The Fare
               </button>
             </Link>

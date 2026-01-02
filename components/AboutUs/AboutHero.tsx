@@ -52,7 +52,7 @@ const AboutHero = () => {
           </div>
 
           <h1 className="font-serif text-5xl md:text-7xl text-[#E0E0E0] leading-[1.1] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-100">
-            A quiet nook <br />
+            T quiet nook <br />
             to leave the{" "}
             <span className="text-[#FF9F2E] italic">noise behind.</span>
           </h1>

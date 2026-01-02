@@ -1,17 +1,16 @@
 import React from "react";
-import { FaQuoteLeft, FaArrowDown } from "react-icons/fa";
+import { FaQuoteLeft } from "react-icons/fa";
 
-const MenuHero = () => {
+const HeroMenu = () => {
   return (
-    <section className="relative w-full min-h-[90vh] flex flex-col justify-center px-6 md:px-12 overflow-hidden bg-[#181816] font-sans">
+    <section className="relative w-full min-h-[600px] md:min-h-[80vh] lg:min-h-[90vh] h-auto flex items-center bg-[#181816] overflow-hidden px-6 md:px-12 py-12 md:py-24">
       {/* =======================
-          ATMOSPHERE & LAYERS
+          BACKGROUND LAYERS
           ======================= */}
-
-      {/* 1. Grain Texture (The "Film" look) */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none z-10 mix-blend-overlay">
+      {/* 1. Grain Texture */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay z-10">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <filter id="noiseFilter">
+          <filter id="n">
             <feTurbulence
               type="fractalNoise"
               baseFrequency="0.8"
@@ -19,109 +18,75 @@ const MenuHero = () => {
               stitchTiles="stitch"
             />
           </filter>
-          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+          <rect width="100%" height="100%" filter="url(#n)" />
         </svg>
       </div>
 
-      {/* 2. The "Ghost" Interior (Blends the physical space into the void) */}
-      <div
-        className="absolute top-0 right-0 w-full md:w-2/3 h-full bg-cover bg-center opacity-20 z-0 mix-blend-luminosity grayscale"
-        style={{
-          backgroundImage: "url('/6.jpg')",
-          maskImage: "linear-gradient(to right, transparent, black)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black)",
-        }}
-      />
-
-      {/* 3. Lantern Glow (Ambient Lighting) */}
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-[#FF9F2E] rounded-full blur-[200px] opacity-[0.05] pointer-events-none z-0" />
+      {/* 2. Subtle Gradient Mood */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#181816] via-transparent to-[#4A3B32]/20 z-0" />
 
       {/* =======================
-          THE CONTENT GRID
+          FLOATING DECORATIONS
           ======================= */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-end pb-12">
-        {/* LEFT SIDE: The Massive Title (KEPT EXACTLY AS REQUESTED) */}
-        <div className="md:col-span-7 flex flex-col space-y-[-1rem] md:space-y-[-2rem] select-none animate-in fade-in slide-in-from-left-8 duration-1000">
-          {/* "SIMPLE" - Hollow/Outline Style */}
+
+      {/* =======================
+          MAIN CONTENT GRID
+          ======================= */}
+      <div className="relative z-30 max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* LEFT COLUMN: BIG TYPOGRAPHY */}
+        <div className="md:col-span-7 select-none relative animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          {/* Outline Text */}
           <h1
-            className="font-serif text-[18vw] md:text-[9rem] leading-none text-transparent tracking-tighter"
-            style={{
-              WebkitTextStroke: "1px #4A3B32",
-              textShadow: "0 0 30px rgba(0,0,0,0.5)",
-            }}
+            className="font-serif text-6xl md:text-8xl xl:text-8xl 2xl:text-[10rem] text-transparent leading-none tracking-tighter"
+            style={{ WebkitTextStroke: "1px #4A3B32" }}
           >
             SIMPLE
           </h1>
-
-          {/* "& HONEST" - Solid Glowing Style */}
-          <h1 className="font-serif text-[18vw] md:text-[9rem] leading-none text-[#FF9F2E] tracking-tighter mix-blend-screen opacity-90 md:ml-24">
+          {/* Filled Text (Overlapping) */}
+          <h1 className="font-serif text-7xl md:text-8xl xl:text-[10rem]  text-[#FF9F2E] leading-none tracking-tighter ml-4 md:ml-12 -mt-4 md:-mt-6 lg:-mt-10 relative z-10 break-words">
             & HONEST
           </h1>
         </div>
 
-        {/* RIGHT SIDE: The Editorial "Manifesto" Card */}
-        <div className="md:col-span-5 relative">
-          {/* The "Stamp" Visual - A rotating seal of authenticity */}
-          <div className="absolute -top-20 -right-4 md:-right-10 opacity-30 animate-[spin_10s_linear_infinite]">
-            <svg viewBox="0 0 100 100" width="120" height="120">
-              <path
-                id="curve"
-                d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0"
-                fill="transparent"
-              />
-              <text fontSize="11" fill="#E0E0E0" letterSpacing="2">
-                <textPath href="#curve">
-                  NO EXTRAS • NO EXTRAS • NO EXTRAS •
-                </textPath>
-              </text>
-            </svg>
-          </div>
+        {/* RIGHT COLUMN: QUOTE & DESCRIPTION */}
+        <div className="md:col-span-5 relative md:pl-8 lg:pl-12 mt-12 md:mt-0 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+          {/* Quote Icon */}
+          <FaQuoteLeft className="text-[#FF9F2E] text-xl md:text-2xl absolute -top-4 -left-4 md:-top-6 md:-left-8 opacity-80" />
 
-          {/* The Text Content */}
-          <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-            {/* The Highlighted Quote */}
-            <div className="relative pl-8 border-l border-[#FF9F2E]/50">
-              <span className="absolute -left-3 top-0 w-6 h-6 bg-[#181816] border border-[#FF9F2E] rounded-full flex items-center justify-center">
-                <FaQuoteLeft className="text-[10px] text-[#FF9F2E]" />
+          <div className="space-y-6 border-l border-[#FF9F2E] pl-6">
+            {/* Main Quote */}
+            <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-[#E0E0E0] leading-tight">
+              "No complicated menus. <br />
+              <span className="text-[#FF9F2E] bg-[#FF9F2E]/10 px-1">
+                No unnecessary extras.
               </span>
+              "
+            </h2>
 
-              <p className="text-3xl md:text-4xl text-[#E0E0E0] font-serif leading-tight">
-                "No complicated menus. <br />
-                <span className="bg-[#FF9F2E]/10 px-2 text-[#FF9F2E]">
-                  No unnecessary extras.
-                </span>
-                "
-              </p>
-            </div>
-
-            {/* The Body Text */}
-            <p className="text-[#8C8681] text-sm md:text-base leading-relaxed font-light max-w-sm">
+            {/* Description paragraph */}
+            <p className="text-[#8C8681] text-sm md:text-base lg:text-lg font-light leading-relaxed max-w-md">
               Cold beer, straightforward pours, and snacks meant to be shared.
               We strip away the noise so you can focus on what matters: the
               company you keep.
             </p>
-
-            {/* Signature / Date Line */}
-            <div className="flex items-center gap-4 pt-4 opacity-50 text-xs tracking-[0.2em] uppercase text-[#2B4C6F]">
-              <span>Est. 2024</span>
-              <div className="h-[1px] w-12 bg-[#2B4C6F]" />
-              <span>Lakeside</span>
-            </div>
           </div>
         </div>
       </div>
 
       {/* =======================
-          VERTICAL SCROLL LINE
+          BOTTOM LABEL
           ======================= */}
-      <div className="absolute bottom-0 left-12 hidden md:flex flex-col items-center gap-4 z-20">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-[#8C8681] [writing-mode:vertical-rl] opacity-60">
-          The Menu
+      <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex items-center gap-4 z-20 animate-in fade-in slide-in-from-right-8 duration-1000 delay-700">
+        <span className="text-[#2B4C6F] text-xs tracking-[0.3em] uppercase">
+          Est. 2024
         </span>
-        <div className="w-[1px] h-24 bg-gradient-to-b from-[#8C8681] to-transparent" />
+        <div className="h-[1px] w-12 bg-[#2B4C6F]" />
+        <span className="text-[#2B4C6F] text-xs tracking-[0.3em] uppercase">
+          Lakeside
+        </span>
       </div>
     </section>
   );
 };
 
-export default MenuHero;
+export default HeroMenu;
